@@ -169,16 +169,16 @@ input {
 
 .hero-gradient-react::before {
   background:
-    radial-gradient(56% 52% at 74% 58%, rgba(226, 236, 255, 0.2) 0%, rgba(150, 181, 255, 0.15) 32%, rgba(0, 0, 0, 0) 70%),
-    radial-gradient(34% 26% at 75% 46%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%);
-  filter: blur(18px);
-  opacity: 0.9;
+    radial-gradient(58% 56% at 74% 56%, rgba(255, 251, 244, 0.72) 0%, rgba(248, 236, 215, 0.32) 34%, rgba(255, 255, 255, 0) 74%),
+    radial-gradient(30% 28% at 77% 40%, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0) 100%);
+  filter: blur(22px);
+  opacity: 1;
 }
 
 .hero-gradient-react::after {
   background:
-    linear-gradient(90deg, rgba(5, 5, 5, 0.82) 0%, rgba(5, 8, 14, 0.66) 26%, rgba(5, 8, 14, 0.24) 52%, rgba(5, 8, 14, 0.42) 100%),
-    linear-gradient(180deg, rgba(5, 9, 16, 0.24) 0%, rgba(5, 9, 16, 0) 24%, rgba(5, 9, 16, 0.18) 100%);
+    linear-gradient(90deg, rgba(245, 239, 232, 0.92) 0%, rgba(245, 239, 232, 0.62) 28%, rgba(245, 239, 232, 0.16) 54%, rgba(245, 239, 232, 0.28) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 26%, rgba(233, 223, 209, 0.18) 100%);
   z-index: 1;
 }
 
@@ -187,8 +187,8 @@ input {
   inset: -6% -8% -10% 18%;
   width: 90% !important;
   height: 116% !important;
-  opacity: 0.94;
-  filter: saturate(1.05) brightness(1.02);
+  opacity: 0.98;
+  filter: saturate(0.92) brightness(1.03);
 }
 
 .topbar {
@@ -2042,6 +2042,17 @@ input {
     font-size: 18px;
   }
 
+  .hero-gradient-react canvas {
+    inset: 2% -12% -18% 8%;
+    width: 104% !important;
+    height: 118% !important;
+    opacity: 0.82;
+  }
+
+  .hero-content::before {
+    inset: 16% 10% 12%;
+  }
+
   .contact {
     grid-template-columns: 1fr;
   }
@@ -2201,6 +2212,24 @@ input {
     margin-top: 16px;
     font-size: 16px;
     line-height: 1.35;
+  }
+
+  .hero-gradient-react::after {
+    background:
+      linear-gradient(180deg, rgba(5, 9, 16, 0.34) 0%, rgba(5, 9, 16, 0.08) 36%, rgba(5, 9, 16, 0.34) 100%),
+      linear-gradient(90deg, rgba(5, 9, 16, 0.52) 0%, rgba(5, 9, 16, 0.18) 100%);
+  }
+
+  .hero-gradient-react canvas {
+    inset: 12% -22% -24% -12%;
+    width: 126% !important;
+    height: 112% !important;
+    opacity: 0.62;
+  }
+
+  .hero-content::before {
+    inset: 18% 4% 10%;
+    background: radial-gradient(circle, rgba(6, 10, 17, 0.34) 0%, rgba(6, 10, 17, 0) 72%);
   }
 
   .cta-dark {
