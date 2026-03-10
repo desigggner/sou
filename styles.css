@@ -10,6 +10,7 @@
   --radius-sm: 12px;
   --container: 1282px;
   --hero-topbar-height: 64px;
+  --hero-content-offset: 36px;
 }
 
 @font-face {
@@ -344,6 +345,7 @@ input {
   position: relative;
   z-index: 2;
   color: #fff;
+  transform: translateY(var(--hero-content-offset));
 }
 
 .hero-emblem {
@@ -1831,6 +1833,10 @@ input {
 }
 
 @media (max-width: 1100px) {
+  .hero.section-shell {
+    --hero-content-offset: 24px;
+  }
+
   .hero-inner {
     border-radius: 24px;
   }
@@ -1876,6 +1882,10 @@ input {
 }
 
 @media (max-width: 768px) {
+  .hero.section-shell {
+    --hero-content-offset: 14px;
+  }
+
   .program-card:hover {
     border-radius: 16px;
   }
