@@ -9,6 +9,7 @@
   --radius-md: 16px;
   --radius-sm: 12px;
   --container: 1282px;
+  --hero-topbar-height: 64px;
 }
 
 @font-face {
@@ -126,9 +127,9 @@ input {
   height: calc(100vh - 12px);
   border-radius: 32px;
   background:
-    radial-gradient(120% 110% at 22% 74%, rgba(86, 6, 255, 0.78) 0%, rgba(86, 6, 255, 0.32) 34%, rgba(0, 0, 0, 0) 62%),
-    radial-gradient(110% 90% at 82% 18%, rgba(254, 137, 137, 0.74) 0%, rgba(254, 137, 137, 0.3) 30%, rgba(0, 0, 0, 0) 58%),
-    linear-gradient(235deg, #050505 8%, #120f26 42%, #050505 100%);
+    radial-gradient(120% 110% at 22% 74%, rgba(69, 151, 254, 0.76) 0%, rgba(69, 151, 254, 0.32) 34%, rgba(0, 0, 0, 0) 62%),
+    radial-gradient(110% 90% at 82% 18%, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.16) 30%, rgba(0, 0, 0, 0) 58%),
+    linear-gradient(235deg, #050505 8%, #0f1727 42%, #050505 100%);
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -332,7 +333,13 @@ input {
 .hero-content {
   width: 1040px;
   max-width: 100%;
-  margin: 80px auto 0;
+  margin: 0 auto;
+  min-height: calc(100% - var(--hero-topbar-height));
+  padding-top: var(--hero-topbar-height);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   position: relative;
   z-index: 2;
@@ -1776,7 +1783,6 @@ input {
   }
 
   .hero-content {
-    margin-top: 88px;
     width: min(1040px, 100%);
   }
 
@@ -1835,10 +1841,6 @@ input {
 
   .nav-links {
     display: none;
-  }
-
-  .hero-content {
-    margin-top: 92px;
   }
 
   .hero-content h1 {
@@ -1958,6 +1960,10 @@ input {
     padding: 0 14px;
   }
 
+  .hero.section-shell {
+    --hero-topbar-height: 60px;
+  }
+
   .logo-head {
     width: 146px;
     height: 26px;
@@ -1977,10 +1983,6 @@ input {
     padding: 0 14px;
     font-size: 13px;
     white-space: nowrap;
-  }
-
-  .hero-content {
-    margin-top: 96px;
   }
 
   .hero-emblem {
@@ -2237,10 +2239,6 @@ input {
 @media (max-width: 520px) {
   .topbar .primary-pill {
     display: none;
-  }
-
-  .hero-content {
-    margin-top: 86px;
   }
 
   .hero-content h1 {

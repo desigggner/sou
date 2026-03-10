@@ -114,18 +114,41 @@ leadForm?.addEventListener('submit', (e) => {
 });
 
 const topbar = document.querySelector('.topbar');
+const heroInner = document.querySelector('.hero-inner');
 
-if (topbar) {
-  const STICKY_OFFSET = 40;
+if (topbar && heroInner) {
+  const STICKY_OFFSET = 56;
+  const stickySentinel = document.createElement('span');
+  stickySentinel.setAttribute('aria-hidden', 'true');
+  Object.assign(stickySentinel.style, {
+    position: 'absolute',
+    top: `${STICKY_OFFSET}px`,
+    left: '0',
+    width: '1px',
+    height: '1px',
+    pointerEvents: 'none',
+  });
+  heroInner.prepend(stickySentinel);
 
-  function updateTopbarSticky() {
-    if (window.scrollY > STICKY_OFFSET) {
-      topbar.classList.add('topbar--sticky');
-    } else {
-      topbar.classList.remove('topbar--sticky');
+  if ('IntersectionObserver' in window) {
+    const stickyObserver = new IntersectionObserver(
+      ([entry]) => {
+        const shouldBeSticky = !entry.isIntersecting;
+        topbar.classList.toggle('topbar--sticky', shouldBeSticky);
+      },
+      {
+        threshold: 0,
+      },
+    );
+
+    stickyObserver.observe(stickySentinel);
+  } else {
+    function updateTopbarStickyFallback() {
+      const shouldBeSticky = (window.scrollY || window.pageYOffset || 0) > STICKY_OFFSET;
+      topbar.classList.toggle('topbar--sticky', shouldBeSticky);
     }
-  }
 
-  window.addEventListener('scroll', updateTopbarSticky);
-  updateTopbarSticky();
+    window.addEventListener('scroll', updateTopbarStickyFallback, { passive: true });
+    updateTopbarStickyFallback();
+  }
 }

@@ -25,9 +25,9 @@ if (mountNode) {
         cDistance={3.9}
         cPolarAngle={115}
         cameraZoom={1}
-        color1="#5606ff"
-        color2="#fe8989"
-        color3="#000000"
+        color1="#4597FE"
+        color2="#4597FE"
+        color3="#FFFFFF"
         destination="onCanvas"
         embedMode="off"
         envPreset="city"
