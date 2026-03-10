@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SZU</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page" id="top">
+      <section class="hero section-shell" id="hero">
+        <div class="hero-inner">
+          <div id="hero-gradient-react" class="hero-gradient-react" aria-hidden="true"></div>
+          <header class="topbar">
+            <div class="nav-left">
+              <img class="logo logo-head" src="./assets/a3dabdb7fe10b89390796ffc603b0fd490864a32.svg" alt="SZU" />
+              <nav class="nav-links">
+                <a href="#education">Об университете</a>
+                <a href="#programs">Программы</a>
+                <a href="#contact">Приемная комиссия</a>
+              </nav>
+            </div>
+            <div class="nav-right">
+              <button class="icon-btn" aria-label="Версия для слабовидящих">
+                <img src="./assets/icon-vision.svg" alt="" aria-hidden="true" />
+              </button>
+              <button class="link-btn" type="button">
+                <img src="./assets/login.svg" alt="" aria-hidden="true" />
+                Войти
+              </button>
+              <button class="primary-pill" data-scroll="#contact" type="button">Оставить заявку</button>
+            </div>
+          </header>
+          <div class="hero-content">
+            <div class="hero-emblem">
+              <img src="./assets/hero-emblem.svg" alt="Герб университета" />
+            </div>
+            <h1>Частный университет.<br />Государственный диплом. Ваше будущее.</h1>
+            <p>Современные программы с официальной аккредитацией</p>
+            <button class="cta-dark" data-scroll="#programs" type="button">Смотреть программы</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="advantages section-shell" id="advantages">
+        <div class="section-title-box">
+          <h2>Учёба, которая всегда заканчивается карьерой</h2>
+        </div>
+        <div class="adv-grid">
+          <article class="adv-card adv-card-wide adv-card-diploma">
+            <div class="adv-card-copy">
+              <h3>Государственный диплом</h3>
+              <p>Диплом государственного образца, признанный работодателями и госструктурами. Подтверждает квалификацию и даёт возможность продолжить обучение.</p>
+            </div>
+            <div class="adv-diploma-visual" aria-hidden="true">
+              <div class="adv-diploma-sheet"></div>
+              <div class="adv-diploma-book">
+                <img class="adv-diploma-shape" src="./assets/1809799ae9bb2510080bd405a1074e3d71cd666b.png" alt="" />
+                <img class="adv-diploma-mark" src="./assets/2c8fd18ed5dd96e42dd276e255dec2eb8ba06888.svg" alt="" />
+              </div>
+            </div>
+          </article>
+
+          <article class="adv-card adv-card-icon adv-card-circle">
+            <img src="./assets/adv-star.svg" alt="" aria-hidden="true" />
+            <p>Государственная аккредитация и лицензия</p>
+          </article>
+
+          <article class="adv-card adv-card-icon adv-card-circle">
+            <img src="./assets/adv-heart.svg" alt="" aria-hidden="true" />
+            <p>Поддержка куратора на всём пути</p>
+          </article>
+
+          <article class="adv-card adv-card-icon adv-card-circle">
+            <img src="./assets/adv-transfer.svg" alt="" aria-hidden="true" />
+            <p>Перевод из другого вуза</p>
+          </article>
+
+          <article class="adv-card adv-card-icon adv-card-circle">
+            <img src="./assets/adv-installment.svg" alt="" aria-hidden="true" />
+            <p>Рассрочка и удобные способы оплаты</p>
+          </article>
+
+          <article class="adv-card adv-card-wide adv-card-online">
+            <div class="adv-card-copy">
+              <h3>Обучение онлайн и очно</h3>
+              <p>Часть программ доступна онлайн или в смешанном формате. Остальные проходят очно — вы можете выбрать удобный формат обучения.</p>
+            </div>
+            <div class="adv-online-media">
+              <div class="adv-online-photo">
+                <img src="./assets/b73253820555498b9ab2d094b8a45686a50d0e10.png" alt="Студентка" />
+              </div>
+              <div class="adv-online-actions">
+                <span><img src="./assets/adv-video.svg" alt="" aria-hidden="true" /></span>
+                <span><img src="./assets/adv-pin.svg" alt="" aria-hidden="true" /></span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="programs section-shell" id="programs">
+        <div class="section-title-box programs-title">
+          <h2>Выбери программу под себя</h2>
+          <p>Найди формат и уровень обучения</p>
+        </div>
+
+        <div class="filters-wrap">
+          <label class="search-line">
+            <span class="search-icon" aria-hidden="true"><img src="./assets/22dc6a9384d2887636b3f772eac17041a9b2c3ec.svg" alt="" /></span>
+            <input id="programSearch" type="text" placeholder="Поиск" />
+          </label>
+
+          <div class="tabs-row">
+            <div class="tabs" id="levelTabs">
+              <button class="tab is-active" data-level="all" type="button">Все</button>
+              <button class="tab" data-level="college" type="button">Колледж</button>
+              <button class="tab" data-level="bachelor" type="button">Бакалавриат</button>
+              <button class="tab" data-level="specialist" type="button">Специалитет</button>
+              <button class="tab" data-level="master" type="button">Магистратура</button>
+              <button class="tab" data-level="postgrad" type="button">Аспирантура</button>
+              <button class="tab" data-level="dpo" type="button">ДПО</button>
+            </div>
+            <div class="format-filter">
+              <button class="tab format-btn" id="formatBtn" type="button">
+                <span>Формат обучения</span>
+                <img src="./assets/6e50666b8e7a23e2fafd67b98764b52fb785a7c0.svg" alt="" aria-hidden="true" />
+              </button>
+              <div class="format-menu" id="formatMenu">
+                <button class="format-option is-active" data-format="all" type="button">Все форматы</button>
+                <button class="format-option" data-format="offline" type="button">Очно</button>
+                <button class="format-option" data-format="online" type="button">Онлайн</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="program-grid" id="programGrid">
+          <article class="program-card" data-level="bachelor" data-format="offline" data-name="Информатика и вычислительная техника">
+            <div class="program-media"><img src="./assets/34765a744116cb15b2d7565efeb81c30ba28ea5b.png" alt="Информатика" /></div>
+            <div class="program-meta"><span>Бакалавриат</span><span>Очно</span></div>
+            <h3>Информатика и вычислительная техника</h3>
+            <div class="program-hover">
+              <p>Вы станете специалистом, который умеет все что нужно для всего</p>
+              <div class="program-hover-foot">
+                <span>09.03.01</span>
+                <strong>32 000 ₽/мес</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="program-card program-card--management" data-level="bachelor" data-format="offline" data-name="Менеджмент">
+            <div class="program-media"><img src="./assets/08f418d7cea3613f0013ce64f47cb33c4fa001bc.png" alt="Менеджмент" /></div>
+            <div class="program-meta">
+              <span>Бакалавриат</span>
+              <span>Очно</span>
+              <span class="program-meta-code">09.03.01</span>
+            </div>
+            <h3>Менеджмент</h3>
+            <div class="program-hover">
+              <p>Вы станете специалистом, который умеет все что нужно для всего</p>
+              <div class="program-hover-foot">
+                <span>09.03.01</span>
+                <strong>32 000 ₽/мес</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="program-card" data-level="bachelor" data-format="offline" data-name="Управление персоналом">
+            <div class="program-media"><img src="./assets/1566f44740c8ad14a241a127039a7c692de3ee5e.png" alt="Управление персоналом" /></div>
+            <div class="program-meta">
+              <span>Бакалавриат</span>
+              <span>Очно</span>
+              <span class="program-meta-code">38.03.03</span>
+            </div>
+            <h3>Управление персоналом</h3>
+            <div class="program-hover">
+              <p>Освоите подбор, адаптацию и развитие сотрудников, HR-аналитику и построение эффективных команд.</p>
+              <div class="program-hover-foot">
+                <span>38.03.03</span>
+                <strong>29 000 ₽/мес</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="program-card" data-level="bachelor" data-format="offline" data-name="Дизайн">
+            <div class="program-media">
+              <span class="program-badge">Двойной диплом</span>
+              <img src="./assets/5c62b9b5c43994b734d77bc8ca707d767cf976ef.png" alt="Дизайн" />
+            </div>
+            <div class="program-meta">
+              <span>Бакалавриат</span>
+              <span>Очно</span>
+              <span class="program-meta-code">54.03.01</span>
+            </div>
+            <h3>Дизайн</h3>
+            <div class="program-hover">
+              <p>Научитесь создавать визуальные решения для брендов и цифровых продуктов, работать с типографикой и айдентикой.</p>
+              <div class="program-hover-foot">
+                <span>54.03.01</span>
+                <strong>33 000 ₽/мес</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="program-card" data-level="bachelor" data-format="offline" data-name="Архитектура">
+            <div class="program-media"><img src="./assets/d361bd58086ff4fddfe1c22d109932e50dc46410.png" alt="Архитектура" /></div>
+            <div class="program-meta">
+              <span>Бакалавриат</span>
+              <span>Очно</span>
+              <span class="program-meta-code">07.03.01</span>
+            </div>
+            <h3>Архитектура</h3>
+            <div class="program-hover">
+              <p>Изучите проектирование зданий и городских пространств, композицию, BIM-инструменты и работу с нормативами.</p>
+              <div class="program-hover-foot">
+                <span>07.03.01</span>
+                <strong>34 000 ₽/мес</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="program-card" data-level="bachelor" data-format="offline" data-name="Экономика">
+            <div class="program-media"><img src="./assets/fe909bcf761a362e0c206cdd9aa7a6c73770a5d6.png" alt="Экономика" /></div>
+            <div class="program-meta">
+              <span>Бакалавриат</span>
+              <span>Очно</span>
+              <span class="program-meta-code">38.03.01</span>
+            </div>
+            <h3>Экономика</h3>
+            <div class="program-hover">
+              <p>Разберетесь в финансовом анализе, бюджетировании и управлении экономическими процессами в компании.</p>
+              <div class="program-hover-foot">
+                <span>38.03.01</span>
+                <strong>28 000 ₽/мес</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="program-card" data-level="bachelor" data-format="offline" data-name="Юриспруденция">
+            <div class="program-media"><img src="./assets/a507fef98f22a07c03f8d55e88b77c3709a71ced.png" alt="Юриспруденция" /></div>
+            <div class="program-meta">
+              <span>Бакалавриат</span>
+              <span>Очно</span>
+              <span class="program-meta-code">40.03.01</span>
+            </div>
+            <h3>Юриспруденция</h3>
+            <div class="program-hover">
+              <p>Получите базу по гражданскому, трудовому и корпоративному праву, научитесь анализировать судебную практику.</p>
+              <div class="program-hover-foot">
+                <span>40.03.01</span>
+                <strong>30 000 ₽/мес</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="program-card" data-level="bachelor" data-format="offline" data-name="Культурология">
+            <div class="program-media"><img src="./assets/a6c08b0072c5e4fb89505f760f0b84bd93318cee.png" alt="Культурология" /></div>
+            <div class="program-meta">
+              <span>Бакалавриат</span>
+              <span>Очно</span>
+              <span class="program-meta-code">51.03.01</span>
+            </div>
+            <h3>Культурология</h3>
+            <div class="program-hover">
+              <p>Изучите историю и теорию культуры, медиа и современное искусство, получите навыки проектной работы.</p>
+              <div class="program-hover-foot">
+                <span>51.03.01</span>
+                <strong>27 000 ₽/мес</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+        <button class="programs-more" type="button">Ещё 12 программ из 163</button>
+      </section>
+
+      <section class="education section-shell" id="education">
+        <div class="section-title-box education-title">
+          <h2>Образование без границ</h2>
+          <p><img src="./assets/00b7cb9af34e5bb9d8b3f71722c5f8956bb33233.png" alt="Италия" />в Италии</p>
+        </div>
+
+        <article class="education-panel">
+          <div class="edu-grid">
+            <div class="edu-item">
+              <span class="edu-item-icon"><img src="./assets/edu-student.svg" alt="" aria-hidden="true" /></span>
+              <p>Обучение в Академии искусств во Флоренции</p>
+            </div>
+            <div class="edu-item">
+              <span class="edu-item-icon"><img src="./assets/edu-files.svg" alt="" aria-hidden="true" /></span>
+              <p>Помощь с документами и поступлением</p>
+            </div>
+            <div class="edu-item">
+              <span class="edu-item-icon"><img src="./assets/edu-sketch.svg" alt="" aria-hidden="true" /></span>
+              <p>Творческие мероприятия и выставки Академии</p>
+            </div>
+            <div class="edu-item">
+              <span class="edu-item-icon"><img src="./assets/edu-house.svg" alt="" aria-hidden="true" /></span>
+              <p>Поддержка с проживанием в Италии</p>
+            </div>
+          </div>
+          <button class="cta-dark edu-btn" type="button">Подробнее о программе</button>
+          <img class="edu-photo" src="./assets/b1ce6da1499a0b76fda99b5167eac8671f9c116c.png" alt="Обучение в Италии" />
+        </article>
+      </section>
+
+      <section class="reviews section-shell" id="reviews">
+        <div class="section-title-box reviews-title">
+          <h2>Отзывы студентов</h2>
+          <p>Говорят сами за себя</p>
+        </div>
+
+        <div class="reviews-grid" id="reviewsGrid">
+          <div class="reviews-col reviews-col--left">
+            <article class="review-card">
+              <header>
+                <img src="./assets/69d12e87c7621b210f724213b0efbd836691850c.png" alt="Анна Смирнова" />
+                <div>
+                  <p class="review-meta"><span>Бакалавриат</span><span>Очно</span><span>09.03.01</span></p>
+                  <strong>Анна Смирнова</strong>
+                  <span class="review-program">Менеджмент</span>
+                </div>
+              </header>
+              <p>Я поступала уже с опытом работы и сомневалась, будет ли программа для меня полезной. В итоге обучение оказалось намного глубже, чем ожидала. Мы разбирали реальные кейсы компаний, работали с аналитикой, стратегией продвижения и позиционированием бренда.</p>
+            </article>
+            <article class="review-card">
+              <header>
+                <img src="./assets/ce301acb0cff2fe1c1c482b28e4dfede70846f12.png" alt="Алексей Соколов" />
+                <div>
+                  <p class="review-meta"><span>Бакалавриат</span><span>Очно</span><span>09.03.01</span></p>
+                  <strong>Алексей Соколов</strong>
+                  <span class="review-program">Государственное и муниципальное управление</span>
+                </div>
+              </header>
+              <p>Обучение помогло лучше понять, как устроены процессы в государственном управлении. Особенно полезными были практические задания и разбор реальных кейсов.</p>
+            </article>
+            <article class="review-card is-extra">
+              <header>
+                <img src="./assets/69d12e87c7621b210f724213b0efbd836691850c.png" alt="Анна Смирнова" />
+                <div>
+                  <p class="review-meta"><span>Бакалавриат</span><span>Очно</span><span>09.03.01</span></p>
+                  <strong>Анна Смирнова</strong>
+                  <span class="review-program">Менеджмент</span>
+                </div>
+              </header>
+              <p>Большой плюс программы — четкая структура и поддержка преподавателей. Каждая тема закреплялась практическими заданиями.</p>
+            </article>
+          </div>
+
+          <div class="reviews-col reviews-col--center">
+            <article class="review-card">
+              <header>
+                <img src="./assets/9947d147236d56b4111d3d213b6dee75d67c12a9.png" alt="Илья Кузнецов" />
+                <div>
+                  <p class="review-meta"><span>Бакалавриат</span><span>Очно</span><span>09.03.01</span></p>
+                  <strong>Илья Кузнецов</strong>
+                  <span class="review-program">Информатика и вычислительная техника</span>
+                </div>
+              </header>
+              <p>Программа хорошо выстроена: от базовых принципов до сложных проектов. Много практики — мы писали код, проходили ревью и работали в командах. Благодаря этому после выпуска было проще найти работу.</p>
+            </article>
+            <article class="review-card review-accent">
+              <img src="./assets/ea0cbbeb9650dbfe4a2cb3735a35a81b0722aa56.svg" alt="" aria-hidden="true" />
+              <strong>100+ выпускников</strong>
+              <p>уже работают по профессии</p>
+            </article>
+            <article class="review-card">
+              <header>
+                <img src="./assets/48a43e9c2599bb98d6a5faf299f74604125294bc.png" alt="Екатерина Морозова" />
+                <div>
+                  <p class="review-meta"><span>Бакалавриат</span><span>Очно</span><span>09.03.01</span></p>
+                  <strong>Екатерина Морозова</strong>
+                  <span class="review-program">Маркетинг</span>
+                </div>
+              </header>
+              <p>Я пришла учиться, чтобы систематизировать знания. В программе много практики и работы с реальными проектами, поэтому навыки сразу можно применять в работе.</p>
+            </article>
+            <article class="review-card is-extra">
+              <header>
+                <img src="./assets/9947d147236d56b4111d3d213b6dee75d67c12a9.png" alt="Илья Кузнецов" />
+                <div>
+                  <p class="review-meta"><span>Бакалавриат</span><span>Очно</span><span>09.03.01</span></p>
+                  <strong>Илья Кузнецов</strong>
+                  <span class="review-program">Информатика и вычислительная техника</span>
+                </div>
+              </header>
+              <p>Много проектной работы и командных задач. После каждого модуля было понятное портфолио и результат.</p>
+            </article>
+          </div>
+
+          <div class="reviews-col reviews-col--right">
+            <article class="review-card">
+              <header>
+                <img src="./assets/ce301acb0cff2fe1c1c482b28e4dfede70846f12.png" alt="Мария Волкова" />
+                <div>
+                  <p class="review-meta"><span>Бакалавриат</span><span>Очно</span><span>09.03.01</span></p>
+                  <strong>Мария Волкова</strong>
+                  <span class="review-program">Дизайн</span>
+                </div>
+              </header>
+              <p>Больше всего понравилось, что преподаватели делятся реальным опытом из индустрии. Мы не просто изучали теорию, а работали над настоящими задачами и проектами.</p>
+            </article>
+            <article class="review-card">
+              <header>
+                <img src="./assets/21b496dd69158823e561d78a5621f98fc8c8fdc3.png" alt="Анна Смирнова" />
+                <div>
+                  <p class="review-meta"><span>Бакалавриат</span><span>Очно</span><span>09.03.01</span></p>
+                  <strong>Анна Смирнова</strong>
+                  <span class="review-program">Менеджмент</span>
+                </div>
+              </header>
+              <p>Для меня было важно, чтобы обучение было системным. Здесь программа выстроена последовательно: от базовых принципов до сложной архитектуры и командной разработки. Много внимания уделяется практике.</p>
+            </article>
+            <article class="review-card is-extra">
+              <header>
+                <img src="./assets/48a43e9c2599bb98d6a5faf299f74604125294bc.png" alt="Екатерина Морозова" />
+                <div>
+                  <p class="review-meta"><span>Бакалавриат</span><span>Очно</span><span>09.03.01</span></p>
+                  <strong>Екатерина Морозова</strong>
+                  <span class="review-program">Маркетинг</span>
+                </div>
+              </header>
+              <p>Сильная практика и разбор реальных кейсов помогли сразу применять знания в работе и расти в профессии.</p>
+            </article>
+          </div>
+        </div>
+        <button class="more-btn" id="reviewsToggle" type="button">Показать ещё</button>
+      </section>
+
+      <section class="faq section-shell" id="faq">
+        <div class="section-title-box faq-title">
+          <h2>Часто задаваемые вопросы</h2>
+          <p>Если вы не нашли ответ на свой вопрос — оставьте заявку</p>
+        </div>
+
+        <div class="faq-list" id="faqList">
+          <article class="faq-item">
+            <button type="button">Какие документы нужны для поступления? <span><img src="./assets/faq-chevron.svg" alt="" aria-hidden="true" /></span></button>
+            <div class="faq-answer">Паспорт, документ об образовании и заявление. Точный список формируется после выбора программы.</div>
+          </article>
+          <article class="faq-item">
+            <button type="button">Есть ли бюджетные места или только платное обучение? <span><img src="./assets/faq-chevron.svg" alt="" aria-hidden="true" /></span></button>
+            <div class="faq-answer">В большинстве программ действует платная форма. Для отдельных направлений предусмотрены грантовые места.</div>
+          </article>
+          <article class="faq-item">
+            <button type="button">Можно ли поступить без ЕГЭ? <span><img src="./assets/faq-chevron.svg" alt="" aria-hidden="true" /></span></button>
+            <div class="faq-answer">Да, по внутренним испытаниям университета или при наличии профильного диплома.</div>
+          </article>
+          <article class="faq-item">
+            <button type="button">Предоставляется ли отсрочка от армии? <span><img src="./assets/faq-chevron.svg" alt="" aria-hidden="true" /></span></button>
+            <div class="faq-answer">Да, для очной формы обучения при наличии государственной аккредитации программы.</div>
+          </article>
+          <article class="faq-item">
+            <button type="button">Можно ли перевестись из другого вуза? <span><img src="./assets/faq-chevron.svg" alt="" aria-hidden="true" /></span></button>
+            <div class="faq-answer">Да, перевод возможен после академической сверки дисциплин и подачи пакета документов.</div>
+          </article>
+          <article class="faq-item">
+            <button type="button">Можно ли зачесть дисциплины, пройденные ранее? <span><img src="./assets/faq-chevron.svg" alt="" aria-hidden="true" /></span></button>
+            <div class="faq-answer">Да, дисциплины могут быть зачтены по результатам рассмотрения учебного плана и оценок.</div>
+          </article>
+          <article class="faq-item">
+            <button type="button">В каком формате проходит обучение? <span><img src="./assets/faq-chevron.svg" alt="" aria-hidden="true" /></span></button>
+            <div class="faq-answer">Очно, онлайн и в смешанном формате в зависимости от выбранной программы.</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact section-shell" id="contact">
+        <div class="contact-left">
+          <h2>Ответим на ваши вопросы</h2>
+          <p>Оставьте заявку, и мы поможем разобраться в программах и формате.</p>
+          <img src="./assets/dae9488207c9824b808dc18fa9a16a6241183f5e.png" alt="Heart" />
+        </div>
+        <div class="contact-right">
+          <form id="leadForm" novalidate>
+            <input type="text" name="name" placeholder="Имя Фамилия" required />
+            <input type="tel" name="phone" placeholder="+7 (000) 000-00-00" required />
+            <input type="email" name="email" placeholder="email@example.com" required />
+            <label class="check-line"><input type="checkbox" name="agree" required checked /><span>Я согласен на обработку персональных данных</span></label>
+            <button class="cta-dark submit-btn" type="submit">Отправить заявку</button>
+            <p class="form-note">Нажимая кнопку, я соглашаюсь на обработку персональных данных и публичной офертой</p>
+            <p class="form-status" id="formStatus"></p>
+          </form>
+        </div>
+      </section>
+
+      <footer class="footer" id="footer">
+        <div class="footer-inner">
+          <div class="footer-main">
+            <div class="footer-left">
+              <img class="logo logo-foot" src="./assets/c012d4c48d5acf950567175183ce0faff05b6eab.svg" alt="SZU" />
+              <div class="footer-contacts">
+                <div class="footer-contact-item">
+                  <a href="tel:+78125005172">8 (812) 500-51-72</a>
+                  <span>Вопросы по покупке, оплате и содержанию</span>
+                </div>
+                <div class="footer-contact-item">
+                  <a href="mailto:hello@szu.ru">hello@szu.ru</a>
+                  <span>Вопросы по учебному процессу</span>
+                </div>
+              </div>
+              <p class="footer-address">г. Санкт-Петербург, ул.Кавалергардская, д.7, лит. А, 2й этаж, 207 каб</p>
+              <a class="footer-social" href="#" aria-label="VK">VK</a>
+              <a class="footer-info-link" href="#">Правовая информация</a>
+            </div>
+            <div class="footer-right">
+              <nav class="footer-links" aria-label="Навигация в подвале">
+                <a href="#">Абитуриенту</a>
+                <a href="#">Направления обучения</a>
+                <a href="#">Стоимость обучения</a>
+                <a href="#">Аспирантура</a>
+                <a href="#">Преподаватели</a>
+                <a href="#">Международное образование</a>
+                <a href="#">Студентам</a>
+                <a href="#">Контакты</a>
+                <a href="#">Реквизиты</a>
+              </nav>
+              <div class="footer-meta">
+                <p>Мы используем файлы cookie, для персонализации сервисов и повышения удобства пользования сайтом. Если вы не согласны на их использование, поменяйте настройки браузера.</p>
+                <div class="footer-docs">
+                  <a href="#">Государственная лицензия № Л035-00115-77/00617221 от 21.02.2023</a>
+                  <a href="#">Государственная аккредитация № А007-00115-78/01201018 от 16.03.2023</a>
+                </div>
+                <div class="footer-service-links">
+                  <a href="#">Абитуриенту</a>
+                  <a href="#">Электронная информационно-образовательная среда</a>
+                  <a href="#">Сведения об образовательной организации</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script type="module" src="/src/hero-gradient.jsx"></script>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
