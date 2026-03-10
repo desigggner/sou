@@ -155,40 +155,12 @@ input {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.hero-gradient-react::before,
-.hero-gradient-react::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.hero-gradient-react::before {
-  background:
-    radial-gradient(58% 56% at 74% 56%, rgba(255, 251, 244, 0.72) 0%, rgba(248, 236, 215, 0.32) 34%, rgba(255, 255, 255, 0) 74%),
-    radial-gradient(30% 28% at 77% 40%, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0) 100%);
-  filter: blur(22px);
-  opacity: 1;
-}
-
-.hero-gradient-react::after {
-  background:
-    linear-gradient(90deg, rgba(245, 239, 232, 0.92) 0%, rgba(245, 239, 232, 0.62) 28%, rgba(245, 239, 232, 0.16) 54%, rgba(245, 239, 232, 0.28) 100%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 26%, rgba(233, 223, 209, 0.18) 100%);
-  z-index: 1;
+  z-index: 0;
 }
 
 .hero-gradient-react canvas {
   position: absolute;
-  inset: -6% -8% -10% 18%;
-  width: 90% !important;
-  height: 116% !important;
-  opacity: 0.98;
-  filter: saturate(0.92) brightness(1.03);
+  inset: 0;
 }
 
 .topbar {
@@ -2042,13 +2014,6 @@ input {
     font-size: 18px;
   }
 
-  .hero-gradient-react canvas {
-    inset: 2% -12% -18% 8%;
-    width: 104% !important;
-    height: 118% !important;
-    opacity: 0.82;
-  }
-
   .hero-content::before {
     inset: 16% 10% 12%;
   }
@@ -2212,19 +2177,6 @@ input {
     margin-top: 16px;
     font-size: 16px;
     line-height: 1.35;
-  }
-
-  .hero-gradient-react::after {
-    background:
-      linear-gradient(180deg, rgba(5, 9, 16, 0.34) 0%, rgba(5, 9, 16, 0.08) 36%, rgba(5, 9, 16, 0.34) 100%),
-      linear-gradient(90deg, rgba(5, 9, 16, 0.52) 0%, rgba(5, 9, 16, 0.18) 100%);
-  }
-
-  .hero-gradient-react canvas {
-    inset: 12% -22% -24% -12%;
-    width: 126% !important;
-    height: 112% !important;
-    opacity: 0.62;
   }
 
   .hero-content::before {
