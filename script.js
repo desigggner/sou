@@ -403,6 +403,89 @@ if (topbar && heroInner) {
   }
 }
 
+const scrollGallerySections = Array.from(document.querySelectorAll('[data-scroll-gallery]'));
+
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value));
+}
+
+if (scrollGallerySections.length) {
+  const scrollGalleries = scrollGallerySections
+    .map((section) => {
+      const sticky = section.querySelector('.management-gallery-sticky');
+      const viewport = section.querySelector('.management-gallery-viewport');
+      const track = section.querySelector('[data-scroll-gallery-track]');
+
+      if (!sticky || !viewport || !track) return null;
+
+      return {
+        section,
+        sticky,
+        viewport,
+        track,
+        distance: 0,
+        start: 0,
+        interactive: false,
+      };
+    })
+    .filter(Boolean);
+
+  let scrollGalleryFrame = 0;
+
+  function measureScrollGalleries() {
+    scrollGalleries.forEach((gallery) => {
+      const stickyTop = Number.parseFloat(window.getComputedStyle(gallery.sticky).top) || 0;
+      const canPin = !prefersReducedMotion && window.innerWidth > 960;
+
+      gallery.interactive = canPin;
+      gallery.section.style.height = '';
+      gallery.track.style.removeProperty('--gallery-offset');
+
+      if (!canPin) {
+        gallery.distance = 0;
+        gallery.start = 0;
+        return;
+      }
+
+      const distance = Math.max(gallery.track.scrollWidth - gallery.viewport.clientWidth, 0);
+      const stickyHeight = gallery.sticky.offsetHeight;
+      const sectionTop = gallery.section.getBoundingClientRect().top + window.scrollY;
+
+      gallery.distance = distance;
+      gallery.start = sectionTop - stickyTop;
+      gallery.section.style.height = `${Math.ceil(stickyHeight + stickyTop + distance)}px`;
+    });
+
+    updateScrollGalleries();
+  }
+
+  function updateScrollGalleries() {
+    scrollGalleries.forEach((gallery) => {
+      if (!gallery.interactive || !gallery.distance) {
+        gallery.track.style.setProperty('--gallery-offset', '0px');
+        return;
+      }
+
+      const progress = clamp((window.scrollY - gallery.start) / gallery.distance, 0, 1);
+      const offset = -gallery.distance * progress;
+      gallery.track.style.setProperty('--gallery-offset', `${offset}px`);
+    });
+  }
+
+  function requestScrollGalleryUpdate() {
+    if (scrollGalleryFrame) return;
+    scrollGalleryFrame = window.requestAnimationFrame(() => {
+      scrollGalleryFrame = 0;
+      updateScrollGalleries();
+    });
+  }
+
+  window.addEventListener('scroll', requestScrollGalleryUpdate, { passive: true });
+  window.addEventListener('resize', measureScrollGalleries);
+  window.addEventListener('load', measureScrollGalleries);
+  measureScrollGalleries();
+}
+
 const advMotionTargets = Array.from(document.querySelectorAll('.adv-card-icon img, .adv-online-actions img'));
 
 function triggerAdvantageNudge() {
