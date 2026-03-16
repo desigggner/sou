@@ -1862,11 +1862,20 @@ input {
   cursor: pointer;
 }
 
-.program-card--interactive:focus-visible {
+.program-card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: 24px;
+}
+
+.program-card-link:focus-visible {
   outline: none;
 }
 
-.program-card--interactive:focus-visible::before {
+.program-card-link:focus-visible::after {
+  content: "";
+  position: absolute;
   inset: -8px;
   border-radius: 24px;
   box-shadow: 0 0 0 3px rgba(72, 150, 255, 0.24);
