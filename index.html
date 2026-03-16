@@ -149,18 +149,27 @@
             </div>
           </article>
 
-          <article class="program-card program-card--management" data-level="bachelor" data-format="offline" data-name="Менеджмент">
+          <article
+            class="program-card program-card--management program-card--interactive"
+            data-level="bachelor"
+            data-format="offline"
+            data-name="Менеджмент"
+            data-href="./management.html"
+            tabindex="0"
+            role="link"
+            aria-label="Открыть страницу программы Менеджмент"
+          >
             <div class="program-media"><img src="./assets/08f418d7cea3613f0013ce64f47cb33c4fa001bc.png" alt="Менеджмент" /></div>
             <div class="program-meta">
               <span>Бакалавриат</span>
               <span>Очно</span>
-              <span class="program-meta-code">09.03.01</span>
+              <span class="program-meta-code">38.03.02</span>
             </div>
             <h3>Менеджмент</h3>
             <div class="program-hover">
-              <p>Вы станете специалистом, который умеет все что нужно для всего</p>
+              <p>Научитесь управлять командами, продуктами и бизнес-процессами на основе аналитики и реальных кейсов компаний.</p>
               <div class="program-hover-foot">
-                <span>09.03.01</span>
+                <span>38.03.02</span>
                 <strong>32 000 ₽/мес</strong>
               </div>
             </div>
@@ -316,7 +325,7 @@
               <header>
                 <img src="./assets/69d12e87c7621b210f724213b0efbd836691850c.png" alt="Анна Смирнова" />
                 <div>
-                  <p class="review-meta"><span>Бакалавриат</span><span>Очно</span><span>09.03.01</span></p>
+                  <p class="review-meta"><span>Бакалавриат</span><span>Очно</span><span>38.03.02</span></p>
                   <strong>Анна Смирнова</strong>
                   <span class="review-program">Менеджмент</span>
                 </div>
@@ -327,7 +336,7 @@
               <header>
                 <img src="./assets/ce301acb0cff2fe1c1c482b28e4dfede70846f12.png" alt="Алексей Соколов" />
                 <div>
-                  <p class="review-meta"><span>Бакалавриат</span><span>Очно</span><span>09.03.01</span></p>
+                  <p class="review-meta"><span>Бакалавриат</span><span>Очно</span><span>38.03.02</span></p>
                   <strong>Алексей Соколов</strong>
                   <span class="review-program">Государственное и муниципальное управление</span>
                 </div>
@@ -338,7 +347,7 @@
               <header>
                 <img src="./assets/69d12e87c7621b210f724213b0efbd836691850c.png" alt="Анна Смирнова" />
                 <div>
-                  <p class="review-meta"><span>Бакалавриат</span><span>Очно</span><span>09.03.01</span></p>
+                  <p class="review-meta"><span>Бакалавриат</span><span>Очно</span><span>38.03.02</span></p>
                   <strong>Анна Смирнова</strong>
                   <span class="review-program">Менеджмент</span>
                 </div>
@@ -472,7 +481,7 @@
           <img src="./assets/dae9488207c9824b808dc18fa9a16a6241183f5e.png" alt="Heart" />
         </div>
         <div class="contact-right">
-          <form id="leadForm" novalidate>
+          <form id="leadForm" data-lead-form data-form-mode="all" data-success-mode="status" novalidate>
             <input type="text" name="name" placeholder="Имя Фамилия" required />
             <input type="tel" name="phone" placeholder="+7 (000) 000-00-00" required />
             <input type="email" name="email" placeholder="email@example.com" required />

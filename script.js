@@ -13,6 +13,7 @@ const formatBtn = document.getElementById('formatBtn');
 const formatMenu = document.getElementById('formatMenu');
 const programSearch = document.getElementById('programSearch');
 const cards = Array.from(document.querySelectorAll('#programGrid > article'));
+const linkedCards = Array.from(document.querySelectorAll('.program-card[data-href]'));
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let activeLevel = 'all';
@@ -145,6 +146,26 @@ function filterPrograms() {
   });
 }
 
+function openLinkedCard(card) {
+  const href = card?.dataset?.href;
+  if (href) {
+    window.location.assign(href);
+  }
+}
+
+linkedCards.forEach((card) => {
+  card.addEventListener('click', (e) => {
+    if (e.target.closest('a, button, input, label')) return;
+    openLinkedCard(card);
+  });
+
+  card.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+    openLinkedCard(card);
+  });
+});
+
 levelTabs?.addEventListener('click', (e) => {
   const target = e.target.closest('.tab');
   if (!target) return;
@@ -216,73 +237,130 @@ faqList?.addEventListener('click', (e) => {
   if (!alreadyOpen) item.classList.add('is-open');
 });
 
-const leadForm = document.getElementById('leadForm');
-const formStatus = document.getElementById('formStatus');
-const formFields = Array.from(document.querySelectorAll('#leadForm input[type="text"], #leadForm input[type="tel"], #leadForm input[type="email"]'));
-const agreeField = leadForm?.querySelector('input[name="agree"]');
-const agreeLine = agreeField?.closest('.check-line');
+const leadForms = Array.from(document.querySelectorAll('[data-lead-form]'));
 
-function showFormStatus(message, color) {
-  if (!formStatus) return;
-  formStatus.textContent = message;
-  formStatus.style.color = color;
-  formStatus.classList.add('is-visible');
+function getFormStatusNode(form) {
+  return form.querySelector('.form-status');
 }
 
-function clearInvalidState() {
-  formFields.forEach((field) => field.classList.remove('is-invalid'));
-  agreeLine?.classList.remove('is-invalid');
-  leadForm?.classList.remove('is-success');
+function showFormStatus(form, message, color) {
+  const statusNode = getFormStatusNode(form);
+  if (!statusNode) return;
+  statusNode.textContent = message;
+  statusNode.style.color = color;
+  statusNode.classList.add('is-visible');
 }
 
-formFields.forEach((field) => {
-  field.classList.add('form-field');
-  field.addEventListener('input', () => field.classList.remove('is-invalid'));
-});
+function clearFormStatus(form) {
+  const statusNode = getFormStatusNode(form);
+  if (!statusNode) return;
+  statusNode.textContent = '';
+  statusNode.classList.remove('is-visible');
+}
 
-agreeField?.addEventListener('change', () => {
-  agreeLine?.classList.remove('is-invalid');
-});
+function clearInvalidState(form, fields, agreeLineNode) {
+  fields.forEach((field) => field.classList.remove('is-invalid'));
+  agreeLineNode?.classList.remove('is-invalid');
+  form.classList.remove('is-success');
+}
 
-leadForm?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const data = new FormData(leadForm);
+function showFormSuccess(form) {
+  const title = form.dataset.successTitle || 'Заявка отправлена';
+  const message = form.dataset.successMessage || 'Мы получили вашу заявку и скоро свяжемся с вами.';
 
-  const name = normalize(data.get('name'));
-  const phone = normalize(data.get('phone'));
-  const email = normalize(data.get('email'));
-  const agree = data.get('agree');
-  const invalidFields = [];
+  form.innerHTML = `
+    <div class="form-success" role="status" aria-live="polite">
+      <span aria-hidden="true">✓</span>
+      <h3>${title}</h3>
+      <p>${message}</p>
+    </div>
+  `;
+}
 
-  clearInvalidState();
+leadForms.forEach((form) => {
+  const formMode = form.dataset.formMode || 'all';
+  const successMode = form.dataset.successMode || 'status';
+  const fields = Array.from(form.querySelectorAll('input[type="text"], input[type="tel"], input[type="email"]'));
+  const nameField = form.querySelector('input[name="name"]');
+  const phoneField = form.querySelector('input[name="phone"]');
+  const emailField = form.querySelector('input[name="email"]');
+  const agreeFieldNode = form.querySelector('input[name="agree"]');
+  const agreeLineNode = agreeFieldNode?.closest('.check-line');
 
-  if (!name) invalidFields.push(leadForm.elements.name);
-  if (!phone) invalidFields.push(leadForm.elements.phone);
-  if (!email) invalidFields.push(leadForm.elements.email);
+  fields.forEach((field) => {
+    field.classList.add('form-field');
+    field.addEventListener('input', () => {
+      field.classList.remove('is-invalid');
+      clearFormStatus(form);
+    });
+  });
 
-  if (!name || !phone || !email || !agree) {
-    invalidFields.forEach((field) => field?.classList.add('form-field', 'is-invalid'));
-    if (!agree) {
-      agreeLine?.classList.add('is-invalid');
+  agreeFieldNode?.addEventListener('change', () => {
+    agreeLineNode?.classList.remove('is-invalid');
+    clearFormStatus(form);
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = normalize(nameField?.value);
+    const phone = normalize(phoneField?.value);
+    const email = normalize(emailField?.value);
+    const agree = Boolean(agreeFieldNode?.checked);
+    const invalidFields = [];
+    const requiresOneContact = formMode === 'contact-one';
+    const hasOneContact = Boolean(phone || email);
+
+    clearInvalidState(form, fields, agreeLineNode);
+
+    if (!name) {
+      invalidFields.push(nameField);
     }
-    if (!prefersReducedMotion) {
-      leadForm.classList.remove('is-shaking');
-      void leadForm.offsetWidth;
-      leadForm.classList.add('is-shaking');
+
+    if (requiresOneContact) {
+      if (!hasOneContact) {
+        invalidFields.push(phoneField, emailField);
+      }
+    } else {
+      if (!phone) invalidFields.push(phoneField);
+      if (!email) invalidFields.push(emailField);
     }
-    showFormStatus('Заполните все поля и подтвердите согласие.', '#c73636');
-    return;
-  }
 
-  leadForm.classList.add('is-success');
-  showFormStatus('Заявка отправлена. Мы свяжемся с вами.', '#1b9647');
-  leadForm.reset();
-});
+    if (!name || !agree || (requiresOneContact ? !hasOneContact : !phone || !email)) {
+      invalidFields.forEach((field) => field?.classList.add('form-field', 'is-invalid'));
+      if (!agree) {
+        agreeLineNode?.classList.add('is-invalid');
+      }
+      if (!prefersReducedMotion) {
+        form.classList.remove('is-shaking');
+        void form.offsetWidth;
+        form.classList.add('is-shaking');
+      }
+      showFormStatus(
+        form,
+        requiresOneContact
+          ? 'Укажите имя, телефон или электронную почту и подтвердите согласие.'
+          : 'Заполните все поля и подтвердите согласие.',
+        '#c73636',
+      );
+      return;
+    }
 
-leadForm?.addEventListener('animationend', (e) => {
-  if (e.animationName === 'formShake') {
-    leadForm.classList.remove('is-shaking');
-  }
+    if (successMode === 'replace') {
+      showFormSuccess(form);
+      return;
+    }
+
+    form.classList.add('is-success');
+    form.reset();
+    showFormStatus(form, 'Заявка отправлена. Мы свяжемся с вами.', '#1b9647');
+  });
+
+  form.addEventListener('animationend', (e) => {
+    if (e.animationName === 'formShake') {
+      form.classList.remove('is-shaking');
+    }
+  });
 });
 
 const topbar = document.querySelector('.topbar');
